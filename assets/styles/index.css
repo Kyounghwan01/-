@@ -66,6 +66,12 @@ body {
   margin-top: 10px;
   cursor: pointer;
 }
+.dis{
+  visibility: hidden; 
+}
+.container3 i:active{
+  transform: scale(0.85);
+}
 .container3 span {
   float: right; 
   font-size: 35px;
