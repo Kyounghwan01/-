@@ -1,0 +1,28 @@
+{
+  "name": "whack-a-mole",
+  "version": "1.0.0",
+  "description": "Whack-a-Mole Project for Bootcamp Prep",
+  "author": "Ken Huh <ken@vanillacoding.co>",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=dev webpack-dev-server --progress --mode development --config webpack.config.dev.js"
+  },
+  "devDependencies": {
+    "@babel/core": "7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "8.0.4",
+    "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "babel-preset-env": "1.7.0",
+    "clean-webpack-plugin": "0.1.19",
+    "cross-env": "5.2.0",
+    "css-loader": "1.0.0",
+    "file-loader": "2.0.0",
+    "html-webpack-plugin": "3.2.0",
+    "style-loader": "0.23.1",
+    "url-loader": "1.1.1",
+    "webpack": "4.20.2",
+    "webpack-cli": "3.1.1",
+    "webpack-dev-server": "3.1.9",
+    "webpack-merge": "4.1.4"
+  }
+}

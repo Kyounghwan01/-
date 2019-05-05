@@ -3,13 +3,15 @@ import "styles/index.css";
 
 var holes = document.querySelectorAll(".hole");
 
+var moles = document.querySelectorAll(".mole");
+
 var popUpClass = "popUp";
 
 var disClass = "dis";
 
 var visibilityStartBtn = "visibilityStartBtn";
 
-var score = 1000;
+var score;
 
 var randomNumber = 0;
 
@@ -20,9 +22,6 @@ var isReady = false;
 var interval;
 
 var latesthole;
-
-
-//var text = document.getElementsByClassName("scoreboard").textContent;
 
 function scoreboard(){document.getElementById("scoreboard").textContent = score;}
 
@@ -45,13 +44,13 @@ function start() {
         raiseMole();
         interval = setInterval(function(){
             raiseMole();
-            console.log(count);
-            if(count === 3){
-                clearInterval(interval);
+            //console.log(count);
+            if(count === 6){
+                clearInterval(interval); 
                 document.querySelector(`.${popUpClass}`).classList.remove(popUpClass);
                 document.querySelector(`.${disClass}`).style.visibility = 'visible';
             }
-        }, 1000)
+        }, 3000)
     }, 1000)
 }
 
@@ -62,14 +61,20 @@ function stop() {
   count = 0;
   isReady = false;
 }
+function upScore(event){
+    if(event.isTrusted === false) return;
+    score = score+10;
+    this.classList.remove(popUpClass);
+    scoreboard();
+}
 
-function upScore() {
-  score += 10;
-  scoreboard();
+for(var i in holes){
+    holes[i].addEventListener("click",upScore);
 }
 
 function resetGame() {
   count = 0;
+  score = 0;
   document.querySelector(`.${disClass}`).style.visibility = 'hidden';
   start();
 }
@@ -93,6 +98,9 @@ function raiseMole() {
         popUp.classList.remove(popUpClass);
         var nextPopUp = hole;
         nextPopUp.classList.add(popUpClass);
+        // if(nextPopUp.classList.remove(popUpClass)){
+        //     start();
+        // } 
       } else {
         var nextPopUp = hole;
         nextPopUp.classList.add(popUpClass);
@@ -104,6 +112,3 @@ function raiseMole() {
   count += 1;
 }
 
-
-
-//setTimeout("history.go(0);", 10);
